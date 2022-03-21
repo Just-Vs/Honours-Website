@@ -1,17 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>main</title>
-</head>
-<body>
-	{% for req in reqs %}
-		<h1>{{req.arguments}}</h1>
-		<h1>{{req.attacks}}</h1>
-		<h1>{{req.grounded}}</h1>
-		<h1>{{req}}</h1>
-	{% endfor %}
+{% extends "layout.html" %}
+{% block content %}
 
-</body>
-</html>
+
+
+		{% for r in res %}
+		<h2>{{ r }}</h2>
+		{% for i in res[r] %}
+			{% if r=="arguments" %}
+				{% if i in res["grounded"] %}
+				<a class="green">{{ i }}</a>
+				{% else %}
+				<a class="red">{{ i }}</a>
+				{% endif %}
+			{% else %}
+				<a>{{ i }}</a>
+			{% endif %}
+		{% endfor %}
+	{% endfor %}		
+
+{% endblock content %}

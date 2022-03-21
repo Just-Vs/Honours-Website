@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+
+	<div>
+
+		<form method="POST" action="">
+			{{ form.hidden_tag() }}
+			<fieldset class="form-group>">
+				<div class="form-group">
+					{{ form.arguments.label(class="form-control-label") }}
+					{{ form.arguments(class="form-control form-control-lg") }}
+				</div>
+				<div class="form-group">
+					{{ form.attacks.label(class="form-control-label") }}
+					{{ form.attacks(class="form-control form-control-lg") }}
+				</div>
+				<div class="form-group">
+					{{ form.semantics.label(class="form-control-label") }}
+					{{ form.semantics(class="form-control form-control-lg") }}
+				</div>
+				<div class="form-group">
+					{{ form.prefered(class="btn btn-outline-info") }}
+				</div>
+		<p class="bg-info"> Use ; to seperate attacks. Use -> to show what each argument is attacking. Example: a->b; b->c</a>
+		</form>
+	</div>
+
+{% endblock content %}

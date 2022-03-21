@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+	
+	<!--for loop-->
+	{% for r in res %} <!--for loop, gets headings of the data sent back-->
+		<h2 class="media-heading">{{ r }}</h2>
+		{% set m=0 %}
+		{% if r=="arguments" %} <!--changes the color of arguments-->
+			{% for l in ln %}
+				{% for i in res[r] %}
+				
+					{% if i in res["semistable"][l] %}
+					<a class="green">{{ i }}</a>
+					{% else %}
+					<a class="red">{{ i }}</a>
+					{% endif %}
+					{% set m =m+1 %}
+				{% endfor %}
+				<br>
+				<br>
+			{% endfor %}
+			
+		{% else %}
+			{% for i in res[r] %}
+				<a>{{ i }}</a>
+			{% endfor %}
+		{% endif %}
+			
+	{% endfor %}
+{% endblock content %}
